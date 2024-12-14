@@ -6,13 +6,13 @@ import Image from "next/image";
 const Photo: React.FC = () => {
   return (
     <div className="w-full h-full relative">
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0 }}
         animate={{
           opacity: 1,
           transition: { delay: 2, duration: 0.4, ease: "easeIn" },
         }}
-      >
+      > */}
         {/* image */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -23,18 +23,18 @@ const Photo: React.FC = () => {
           className="w-[298px] h-[298px] xl:w-[398px] xl:h-[398px] mix-blend-lighten absolute"
         >
           <Image
-            src="/footer.png"
+            src="/girl.jpg"
             priority
             quality={100}
             fill
             alt="Photo"
-            className="object-contain"
+            className="object-contain relative"
           />
         </motion.div>
 
         {/* circle */}
-        <motion.svg
-          className="w-[300px] xl:w-[406px] h-[300px] xl:h-[406px]"
+        {/* <motion.svg
+          className="w-[300px] xl:w-[406px] h-[300px] xl:h-[406px] bg-black"
           fill="transparent"
           viewBox="0 0 506 506"
           xmlns="http://www.w3.org/2000/svg"
@@ -56,10 +56,11 @@ const Photo: React.FC = () => {
               duration: 20,
               repeat: Infinity,
               repeatType: "reverse",
+              
             }}
           />
-        </motion.svg>
-      </motion.div>
+        </motion.svg>  */}
+      {/* </motion.div> */}
     </div>
   );
 };

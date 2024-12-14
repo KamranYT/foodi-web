@@ -1,49 +1,60 @@
-import { Button } from "@/components/ui/button";
-import { FiDownload } from "react-icons/fi";
+import Image from "next/image";
+import { Button } from "@/components/ui/moving-border";
 
-//components
-import Social from "@/components/Social";
-import Photo from "@/components/Photo";
-import Stats from "@/components/Stats";
+// components
+import CategoryGrid from "@/components/Categories";
+import SpecialDish from "@/components/Special";
+import TestimonialSection from "@/components/reviews";
+import Services from "./services/page";
 
 const Home = () => {
   return (
     <section className="h-full">
       <div className="container mx-auto h-full">
         <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
-         {/* text */}
-         <div className="text-center xl:text-left order-2 xl:order-none">
-          <span className="text-xl">Software Developer</span>
-          <h1 className="h1 mb-6">
-            Hello Im <br /> <span className="text-accent">Muhammad Kamran</span>
-          </h1>
-          <p className="mx-w-[500px] mb-9 text-white/80">
-          I excel at crafting elegant digital experience and I am proficient in various programming language and technologies.   
-          </p>
-          {/* btn and socials */}
-          <div className="flex flex-col xl:flex-row items-center gap-8">
-            <Button
-             variant="outline"
-             size="lg"
-             className="uppercase flex items-center gap-2"
-            >
-              <span>Download CV</span>
-              <FiDownload className="text-xl" />
-            </Button>
-            <div className="mb-8 xl:mb-0">
-              <Social containerStyles="flex gap-6" iconStyles="w-9 h-9 border border-accent rounded-full flex justify-center items-center text=accent text-base hover:bg-accent hover:text-primary hover:transition-all duration-500"
-              />
-              </div>
+          {/* Text Section */}
+          <div className="text-center xl:text-left order-2 xl:order-none font-bold mt-10">
+            <h1 className="h1 mb-6 text-black xl:text-6xl ml-28">
+              Dive into Delights <br /> Of Delectable{" "}
+              <span className="text-[#39DB4A]">Food</span>
+            </h1>
+            <p className="mx-w-[500px] mb-9 text-[#4A4A4A] font-medium text-2xl ml-28">
+              Where Each Plate Weaves a Story of Culinary <br /> Mastery and
+              Passionate Craftsmanship
+            </p>
+            {/* Button */}
+            <div className="flex flex-col xl:flex-row items-center gap-8 ml-28">
+              <Button
+                variant="outline"
+                size="lg"
+                className="uppercase flex items-center gap-2 bg-[#39DB4A]"
+              >
+                <span>Order Now</span>
+              </Button>
+            </div>
           </div>
-         </div>
-         {/* photo */}
-         <div className="">
-          <Photo />
-         </div>
+
+          {/* Photo Section */}
+          <div>
+            <Image
+              src="/girl.jpg"
+              alt="Person with food"
+              width={650}
+              height={500} // Provide a suitable height for the image
+              className="rounded-lg"
+              priority
+            />
+          </div>
         </div>
       </div>
-      <Stats />
+
+      {/* Components */}
+      <CategoryGrid />
+      <SpecialDish />
+      <TestimonialSection />
+      <Services />
     </section>
   );
 };
+
 export default Home;

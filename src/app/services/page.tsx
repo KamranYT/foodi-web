@@ -1,85 +1,77 @@
 "use client";
 
-import { BsArrowDownRight } from "react-icons/bs";
-import Link from "next/link";
-import { motion } from "framer-motion";
+import React from "react";
+import { Button } from "@/components/ui/button";
+import { FaGift } from "react-icons/fa";
+import { RiShoppingCart2Line } from "react-icons/ri";
+import { BiTimer } from "react-icons/bi";
+import { LuSalad } from "react-icons/lu";
+// import { useOutsideClick } from "@/components/ui/animated-model";
 
-// Define types for services array
-interface Service {
-  num: string;
-  title: string;
-  description: string;
-  href: string;
-}
-
-// Define the services array with appropriate types
-const services: Service[] = [
+// Example service data
+const services = [
   {
-    num: "01",
-    title: "Web Development",
-    description: "Build powerful, responsive websites tailored to meet your business needs. Our team delivers clean, efficient code for optimal performance and scalability.",
-    href: "#",  // You can replace with actual links
+    title: "CATERING",
+    description: "Delight your guests with our flavors and presentation",
+    icon: <LuSalad className="text-[#5FE26C] text-4xl w-[64px] h-[64px] bg-white" />,
   },
   {
-    num: "02",
-    title: "UI/UX Design",
-    description: "Enhance user engagement with intuitive, visually appealing designs tailored for seamless user experiences. From wireframes to prototypes, we craft user-centered interfaces that align with your brand and goals.",
-    href: "#",  // You can replace with actual links
+    title: "FAST DELIVERY",
+    description: "We deliver your order promptly to your door",
+    icon: <BiTimer className="text-[#5FE26C] text-4xl w-[64px] h-[64px] bg-white" />,
   },
   {
-    num: "03",
-    title: "Logo Design",
-    description: "Create a memorable brand identity with a custom logo that captures your essence. Our designs are unique, timeless, and crafted to make a lasting impression.",
-    href: "#",  // You can replace with actual links
+    title: "ONLINE ORDERING",
+    description: "Explore menu & order with ease using our Online Ordering",
+    icon: <RiShoppingCart2Line className="text-[#5FE26C] text-4xl w-[64px] h-[64px] bg-white" />,
   },
   {
-    num: "04",
-    title: "SEO",
-    description: "Boost your online visibility and drive organic traffic with tailored SEO strategies. We optimize your site to rank higher, attract the right audience, and increase conversions.",
-    href: "#",  // You can replace with actual links
+    title: "GIFT CARDS",
+    description: "Give the gift of exceptional dining with Foodi Gift Cards",
+    icon: <FaGift className="text-[#5FE26C] text-4xl w-[64px] h-[64px] bg-white" />,
   },
 ];
 
 const Services = () => {
   return (
-    <section className="min-h-[80vh] flex flex-col justify-center py-12 xl:py-0">
-      <div className="container mx-auto">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{
-            opacity: 1,
-            transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
-          }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-[60px]"
+    <section className="py-12 flex justify-between items-center px-20 gap-16">
+      {/* Left Section */}
+      <div className="max-w-lg ml-60">
+        <h1 className="text-[#FF6868] mb-4 font-bold tracking-wider">OUR STORY & SERVICES</h1>
+        <h2 className="font-bold text-5xl text-black mb-6 tracking-wide">
+          Our Culinary Journey <br /> And Services
+        </h2>
+        <h3 className="text-[#555555] text-xl font-medium mb-8">
+          Rooted in passion, we curate unforgettable dining experiences and
+          offer exceptional services, blending culinary artistry with warm
+          hospitality.
+        </h3>
+        <Button
+          variant="outline"
+          size="lg"
+          className="uppercase flex items-center text-white gap-2 bg-[#39DB4A] hover:bg-[#34c43e] border-b-2 font-semibold px-8 py-4"
         >
-          {services.map((service, index) => (
-            <div key={index} className="flex-1 flex flex-col justify-center gap-6 group">
-              {/* Top Section */}
-              <div className="w-full flex justify-between items-center">
-                <div className="text-5xl font-extrabold text-outline text-transparent group-hover:text-outline-hover transition-all duration-500">
-                  {service.num}
-                </div>
-                <Link
-                  href={service.href}
-                  className="w-[70px] h-[70px] rounded-full bg-white group-hover:bg-accent transition-all duration-500 flex justify-center items-center hover:-rotate-45"
-                >
-                  <BsArrowDownRight className="text-primary text-3xl" />
-                </Link>
-              </div>
+          <span>Explore</span>
+        </Button>
 
-              {/* Title */}
-              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500">
-                {service.title}
-              </h2>
+      </div>
 
-              {/* Description */}
-              <p className="text-white/60">{service.description}</p>
-
-              {/* Border */}
-              <div className="border-b border-white/20 w-full"></div>
+      {/* Right Section - Service Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mr-60">
+        {services.map((service, index) => (
+          <div
+            key={index}
+            className="flex flex-col items-center p-6 bg-white rounded-2xl shadow-[0px_10px_20px_rgba(0,0,0,0.1)] hover:shadow-[0px_15px_25px_rgba(0,0,0,0.15)] transition-shadow duration-300"
+          >
+            <div className="flex items-center justify-center rounded-full bg-green-100 mb-4">
+              {service.icon}
             </div>
-          ))}
-        </motion.div>
+            <h2 className="text-xl font-bold mb-2 text-center text-[#5FE26C]">{service.title}</h2>
+            <p className="text-[#90BD95] text-center w-full max-w-[200px]  line-clamp-3">
+              {service.description}
+            </p>
+          </div>
+        ))}
       </div>
     </section>
   );

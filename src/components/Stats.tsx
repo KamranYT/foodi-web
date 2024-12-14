@@ -36,7 +36,7 @@ const Stats: React.FC = () => {
           {stats.map((item, index) => {
             return (
               <div
-                className="flex-1 flex gap-4 items-center justify-center xl:justify-start"
+                className="flex-1 flex gap-4 items-center justify-center xl:justify-start text-black"
                 key={index}
               >
                 <CountUp

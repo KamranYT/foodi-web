@@ -3,6 +3,7 @@ import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
 import StairTransition from "@/components/StairTransition";
 import { ReactNode } from "react"; // Import ReactNode for typing
@@ -24,10 +25,13 @@ export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
     <html lang="en">
       <body className={`${jetbrainsMono.variable} ${jetbrainsMono.variable} antialiased`}>
         <Header />
+        
         <StairTransition />
         <PageTransition>
           {children}
+          <Footer />
         </PageTransition>
+        
       </body>
     </html>
   );
